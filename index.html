@@ -5,105 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NPRO</title>
 
-  <style>
-    body{margin:0;font-family:Arial, Helvetica, sans-serif;}
-
-    /* Navbar */
-    header{background:#1e1e1e;border-bottom:1px solid #333;}
-    .navbar{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 20px}
-    .logo img{height:32px;width:auto;display:block}
-    .nav-links{display:flex;gap:28px;align-items:center;list-style:none;margin:0;padding:0;flex:1;justify-content:center}
-    .nav-links li{position:relative}
-    .nav-links>li>a{color:#fff;text-decoration:none;font-weight:bold;font-size:14px;padding:8px 0;display:flex;align-items:center}
-    .nav-links li:hover>a{color:#d4af37}
-    .dropdown{display:none;position:absolute;top:100%;left:0;background:#2a2a2a;border:1px solid #333;min-width:180px;z-index:100}
-    .dropdown a{display:block;color:#fff;text-decoration:none;padding:10px 14px;font-size:13px}
-    .dropdown a:hover{background:#333}
-    .nav-links li:hover .dropdown{display:block}
-    .search{padding:0 16px;color:#fff;cursor:pointer;font-size:16px}
-
-    /* Hero slider */
-    .hero-slider{position:relative;isolation:isolate;height:clamp(380px,70vh,780px);background:#0b0c10;overflow:hidden;
-      user-select:none;-webkit-user-select:none;touch-action:pan-y;}
-    .hero-slider .slider-track{display:flex;height:100%;will-change:transform;transition:transform .6s cubic-bezier(.22,1,.36,1);cursor:grab}
-    .hero-slider.dragging .slider-track{cursor:grabbing}
-    .hero-slider img{pointer-events:none}
-    .hero-slider .slide{position:relative;min-width:100%;height:100%}
-    .hero-slider .slide .bg{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.02)}
-    .hero-slider .slide::after{content:"";position:absolute;inset:0;
-      background:radial-gradient(1200px 600px at 20% 20%, rgba(0,0,0,.35), transparent 50%),linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.25));pointer-events:none}
-    .hero-slider .overlay{position:absolute;inset:auto auto 14% 8%;max-width:min(560px,86vw);color:#fff;z-index:2;
-      background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.15);padding:24px 28px;border-radius:12px;backdrop-filter:blur(4px)}
-    .hero-slider h2{margin:0 0 .3em;font-size:clamp(28px,4.2vw,44px);line-height:1.08}
-    .hero-slider p{margin:.2em 0 1em;color:#e7e9ee;opacity:.95}
-    .hero-slider .cta{display:inline-block;padding:10px 16px;border-radius:6px;border:2px solid #1ea0ff;color:#1ea0ff;text-decoration:none;font-weight:700}
-    .hero-slider .cta:hover{background:#1ea0ff;color:#0a0b0f}
-    .hero-slider .nav{position:absolute;top:50%;translate:0 -50%;width:44px;height:44px;border-radius:50%;
-      border:1px solid rgba(255,255,255,.3);color:#fff;background:rgba(0,0,0,.35);display:grid;place-items:center;cursor:pointer;z-index:3;transition:.2s}
-    .hero-slider .nav:hover{background:rgba(255,255,255,.12)}
-    .hero-slider .prev{left:14px}.hero-slider .next{right:14px}
-    .hero-slider .dots{position:absolute;bottom:14px;left:50%;translate:-50% 0;display:flex;gap:10px;z-index:3}
-    .hero-slider .dots button{width:10px;height:10px;border-radius:999px;border:none;cursor:pointer;background:rgba(255,255,255,.45);transition:.2s}
-    .hero-slider .dots button.active{width:24px;background:#fff}
-    @media (max-width:720px){.hero-slider .overlay{inset:auto 6% 10% 6%;padding:16px 18px}}
-
-    /* Generic container */
-    .container{max-width:1180px;margin:auto;padding:0 24px}
-
-    /* Featured videos */
-    .featured-videos{padding:36px 0 24px}
-    .fv-grid{display:grid;grid-template-columns:44px 1fr 420px;gap:26px;align-items:start}
-    .fv-label{display:flex;align-items:center;justify-content:center;height:100%}
-    .fv-label span{writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:.08em;font-weight:700;color:#1a1a1a;opacity:.7}
-    .fv-player{position:relative;padding-top:56.25%;border:1px solid #e6e6e6;background:#000;border-radius:8px;overflow:hidden}
-    .fv-player iframe{position:absolute;inset:0;width:100%;height:100%;display:block}
-    .fv-side{background:#1e1e1e;color:#fff;border-radius:8px;padding:16px 18px;position:relative}
-    .fv-eyebrow{display:inline-block;color:#4fc3ff;font-size:.86rem;letter-spacing:.08em;text-decoration:none;margin-bottom:10px}
-    .fv-title{margin:.1em 0 .4em;font-size:clamp(18px,2.2vw,26px);line-height:1.2}
-    .fv-desc{opacity:.9;margin:0 0 12px}
-    .fv-cta{display:inline-block;padding:10px 14px;border:1px solid #fff;border-radius:4px;text-decoration:none;color:#fff;font-weight:700}
-    .fv-cta:hover{background:#fff;color:#111}
-    .fv-thumbs{display:grid;grid-template-columns:1fr;gap:12px;margin-top:14px;max-height:240px;overflow:auto;padding-right:6px}
-    .thumb{position:relative;display:block;padding:0;border:0;cursor:pointer;background:transparent;border-radius:6px;overflow:hidden}
-    .thumb img{width:100%;height:92px;object-fit:cover;display:block;transition:.2s}
-    .thumb .dur{position:absolute;bottom:6px;left:6px;background:rgba(0,0,0,.7);color:#fff;font-size:.78rem;padding:2px 6px;border-radius:4px}
-    .thumb.active img,.thumb:hover img{filter:brightness(1.05) contrast(1.05);transform:scale(1.02)}
-    @media (max-width:1000px){.fv-grid{grid-template-columns:1fr;gap:16px}.fv-label{order:-1;justify-content:flex-start}.fv-label span{writing-mode:horizontal-tb;transform:none;font-size:.9rem}.fv-side{order:1}}
-
-    /* News / Education two columns */
-    .home-sections{padding:36px 0 60px}
-    .hs-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-    .hs-card{border-top:1px solid #e6e6e6;padding-top:22px}
-    .hs-eyebrow a{display:inline-block;font-weight:800;letter-spacing:.12em;font-size:.88rem;color:#2a80ff;background:#eef5ff;padding:6px 10px;border-radius:999px;text-decoration:none}
-    .hs-eyebrow a:hover{background:#dbeaff}
-    .news-item{border-bottom:1px solid #eee;padding:20px 0}
-    .news-item:last-child{border-bottom:none}
-    .news-link{display:block;color:inherit;text-decoration:none}
-    .news-content{display:flex;gap:20px;align-items:flex-start}
-    .news-text{flex:1}
-    .news h4,.news-text h4{margin:.6em 0 .3em;font-size:clamp(18px,2.2vw,24px)}
-    .news .meta{color:#666;font-size:.9rem;margin-bottom:6px}
-    .news p{color:#333}
-    .news .link{font-weight:700;text-decoration:none}
-    .news-thumb img{width:200px;height:130px;object-fit:cover;border-radius:4px;transition:.2s}
-    .news-link:hover .news-thumb img{filter:brightness(1.05) contrast(1.05);transform:scale(1.01)}
-    @media (max-width:768px){.hs-grid{grid-template-columns:1fr}.news-content{flex-direction:column}.news-thumb img{width:100%;height:auto}}
-
-    /* Product Index */
-    .product-index{position:relative;padding:56px 0 120px;background:#fff}
-    .pi-wrap{width:min(980px,90vw);margin:0 auto;position:relative}
-    .pi-wrap::after{content:"";position:absolute;top:12px;bottom:-60px;right:-120px;width:1px;background:#e9e9e9}
-    .pi-wrap::before{content:"";position:absolute;top:160px;right:-120px;width:12px;height:12px;border-right:1px solid #e9e9e9;border-top:1px solid #e9e9e9;background:#fff;transform:rotate(45deg)}
-    .pi-title{font-size:14px;letter-spacing:.14em;font-weight:800;color:#888;margin:0 0 18px}
-    .pi-list{list-style:none;padding:0;margin:0 auto;width:min(540px,86%)}
-    .pi-list li{padding:14px 0;border-bottom:1px solid #f1f1f1}
-    .pi-list li:last-child{border-bottom:none}
-    .pi-list a{text-decoration:none;color:#111;font-weight:700;display:inline-block;position:relative;padding-bottom:6px}
-    .pi-list li.active a::after,.pi-list a:hover::after{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:68px;background:#1e8bff}
-    .pi-list li a{font-size:14px;letter-spacing:.02em}
-    .pi-list li+li{margin-top:2px}
-    @media (max-width:1200px){.pi-wrap::after,.pi-wrap::before{display:none}}
-  </style>
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -128,7 +31,9 @@
           <div class="dropdown"><a href="#">Training</a><a href="#">Webinars</a></div>
         </li>
       </ul>
-      <div class="search">🔍</div>
+        </div>
+    </div>
+  </footer>
     </div>
   </header>
 
@@ -226,8 +131,7 @@
 
         <!-- Education -->
         <div class="hs-card">
-          <div class="hs-eyebrow"><a href="/education">EDUCATION AND EVENTS</a></div>
-
+          <div class="hs-eyebrow"><a href="products.html">EDUCATION AND EVENTS</a></div>
           <article class="news-item">
             <a class="news-link" href="/education/milan-avb-workshop">
               <div class="news-content">
@@ -250,113 +154,91 @@
   </section>
 
   <!-- Product Index -->
-  <section class="product-index">
-    <div class="pi-wrap">
-      <h2 class="pi-title">PRODUCT</h2>
+<section class="product-index">
+  <div class="pi-wrap">
+    <h2 class="pi-title">PRODUCT</h2>
+
+    <div class="pi-layout">
+      <!-- ซ้าย: รายการหมวด/รุ่น -->
       <ul class="pi-list" id="piList">
-        <li class="active"><a href="#blueprint">BLUEPRINT AV™</a></li>
-        <li><a href="#e-series">E-SERIES</a></li>
-        <li><a href="#cs-series">CS-SERIES</a></li>
-        <li><a href="#s-series">S-SERIES</a></li>
-        <li><a href="#is-series">IS-SERIES</a></li>
-        <li><a href="#point-series">POINT SERIES</a></li>
-        <li><a href="#m-series">M-SERIES</a></li>
+        <li class="active"><a href="#blueprint" data-key="blueprint">BLUEPRINT AV™</a></li>
+        <li><a href="#e-series" data-key="eSeries">E-SERIES</a></li>
+        <li><a href="#cs-series" data-key="csSeries">CS-SERIES</a></li>
+        <li><a href="#s-series" data-key="sSeries">S-SERIES</a></li>
+        <li><a href="#is-series" data-key="isSeries">IS-SERIES</a></li>
+        <li><a href="#point-series" data-key="pointSeries">POINT SERIES</a></li>
+        <li><a href="#m-series" data-key="mSeries">M-SERIES</a></li>
       </ul>
+
+      <!-- ขวา: พื้นที่รายละเอียดที่เปลี่ยนตามรายการ -->
+      <aside class="pi-detail" id="piDetail">
+        <div class="pi-img-wrap">
+          <img id="piImage" src="img/IMG_1103.JPG" alt="Product image">
+        </div>
+        <div class="pi-copy">
+          <h3 id="piName">Class leading SPL in a compact design</h3>
+          <p id="piDesc">
+            The S-Series solves the challenge of consistent coverage and excellent power
+            from a sub-compact system. Designed for touring, installation, and rental.
+          </p>
+          <a id="piCta" class="pi-btn" href="#">VIEW MORE</a>
+        </div>
+      </aside>
     </div>
-  </section>
+  </div>
+</section>
 
-  <script>
-    // ===== HERO SLIDER =====
-    (function(){
-      const slider = document.querySelector('.hero-slider');
-      const track  = slider.querySelector('.slider-track');
-      const slides = Array.from(track.children);
-      const prev   = slider.querySelector('.prev');
-      const next   = slider.querySelector('.next');
-      const dotsWrap = slider.querySelector('.dots');
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="container footer-grid">
+        <!-- Col 1 -->
+        <div class="footer-col">
+          <h4 class="footer-title">BLUEPRINT AV™</h4>
+          <ul class="footer-links">
+            <li><a href="#">Download</a></li>
+            <li><a href="#">Tutorial Series</a></li>
+          </ul>
+        </div>
 
-      dotsWrap.innerHTML = '';
-      slides.forEach((_, i) => {
-        const b = document.createElement('button');
-        b.setAttribute('aria-label','go to slide '+(i+1));
-        if(i===0) b.classList.add('active');
-        dotsWrap.appendChild(b);
-      });
-      const dots = Array.from(dotsWrap.children);
+        <!-- Col 2 -->
+        <div class="footer-col">
+          <h4 class="footer-title">COMPANY</h4>
+          <ul class="footer-links">
+            <li><a href="#">Company</a></li>
+            <li><a href="#">Product</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Education</a></li>
+          </ul>
+        </div>
 
-      let index = 0, direction = 1, autoTimer = null;
-      let isDragging = false, startX = 0, currentX = 0, delta = 0;
-      const DRAG_THRESHOLD=60, AUTO_DURATION=2500, EASE='cubic-bezier(.22,1,.36,1)';
-      slides.forEach(s=>s.querySelectorAll('img').forEach(img=>img.setAttribute('draggable','false')));
+        <!-- Col 3 -->
+        <div class="footer-col">
+          <h4 class="footer-title">CONNECT WITH US</h4>
+          <div class="footer-social">
+            <a href="#" aria-label="LinkedIn" class="ico">in</a>
+            <a href="#" aria-label="Facebook" class="ico">f</a>
+            <a href="#" aria-label="Instagram" class="ico">ig</a>
+            <a href="#" aria-label="Vimeo" class="ico">v</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      function update(){ track.style.transform=`translateX(${-index*100}%)`; dots.forEach((d,i)=>d.classList.toggle('active',i===index)); }
-      function clamp(n,min,max){ return Math.max(min,Math.min(max,n)); }
-      function go(i,{setDir}={}){ const n=clamp(i,0,slides.length-1); if(setDir&&n!==index){direction=n>index?1:-1} index=n; track.style.transition=`transform .6s ${EASE}`; update(); restartAuto(); }
-      function autoSlide(){ if(index===slides.length-1) direction=-1; else if(index===0) direction=1; index+=direction; track.style.transition=`transform .6s ${EASE}`; update(); }
-      function startAuto(){ if(!autoTimer) autoTimer=setInterval(autoSlide,AUTO_DURATION); }
-      function stopAuto(){ if(autoTimer){ clearInterval(autoTimer); autoTimer=null; } }
-      function restartAuto(){ stopAuto(); startAuto(); }
-      startAuto();
+    <div class="footer-bottom">
+      <div class="container footer-bottom-wrap">
+        <div class="copy">Copyright © 2025 NPRO. All Rights Reserved.</div>
+        <div class="legal">
+          <a href="#">Terms</a>
+          <span>·</span>
+          <a href="#">Privacy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-      slider.addEventListener('mouseenter', stopAuto);
-      slider.addEventListener('mouseleave', startAuto);
-      next.addEventListener('click', ()=>{direction=1;autoSlide();});
-      prev.addEventListener('click', ()=>{direction=-1;autoSlide();});
-      dots.forEach((d,i)=>d.addEventListener('click',()=>go(i,{setDir:true})));
-
-      const onDown=(x,ev)=>{ if(ev&&ev.target&&ev.target.closest('a')) return; isDragging=true; startX=currentX=x; delta=0; stopAuto(); track.style.transition='none'; slider.classList.add('dragging'); if(ev&&ev.preventDefault) ev.preventDefault(); };
-      const onMove=(x)=>{ if(!isDragging) return; currentX=x; delta=currentX-startX; let percent=(delta/slider.clientWidth)*100; if((index===0&&percent>0)||(index===slides.length-1&&percent<0)){ percent*=0.35; } track.style.transform=`translateX(calc(${-index*100}% + ${percent}%))`; };
-      const onUp=()=>{ if(!isDragging) return; isDragging=false; slider.classList.remove('dragging'); track.style.transition=`transform .6s ${EASE}`; if(Math.abs(delta)>DRAG_THRESHOLD){ if(delta<0){direction=1;autoSlide();} else {direction=-1;autoSlide();} } else { update(); startAuto(); } delta=0; };
-
-      slider.addEventListener('mousedown', e=>onDown(e.clientX,e));
-      window.addEventListener('mousemove', e=>onMove(e.clientX));
-      window.addEventListener('mouseup', onUp);
-      window.addEventListener('mouseleave', onUp);
-      slider.addEventListener('touchstart', e=>onDown(e.touches[0].clientX,e), {passive:false});
-      slider.addEventListener('touchmove',  e=>onMove(e.touches[0].clientX),  {passive:true});
-      slider.addEventListener('touchend', onUp);
-      slider.addEventListener('touchcancel', onUp);
-
-      window.addEventListener('keydown', e=>{ if(e.key==='ArrowRight'){direction=1;autoSlide();} if(e.key==='ArrowLeft'){direction=-1;autoSlide();} });
-      window.addEventListener('resize', ()=>{ track.style.transition='none'; update(); requestAnimationFrame(()=>{ track.style.transition=`transform .6s ${EASE}`; }); });
-
-      update();
-    })();
-
-    // ===== Featured Thumbs Switch =====
-    (function(){
-      const player = document.getElementById('fvPlayer').querySelector('iframe');
-      const thumbs = Array.from(document.querySelectorAll('#fvThumbs .thumb'));
-      const title  = document.querySelector('.fv-title');
-      const desc   = document.querySelector('.fv-desc');
-      const eye    = document.querySelector('.fv-eyebrow');
-
-      thumbs.forEach(btn=>{
-        btn.addEventListener('click', ()=>{
-          thumbs.forEach(b=>b.classList.remove('active'));
-          btn.classList.add('active');
-          const src=btn.dataset.src, t=btn.dataset.title||'', d=btn.dataset.desc||'', e=btn.dataset.eyebrow||'';
-          if(src&&player) player.src=src; if(title) title.textContent=t; if(desc) desc.textContent=d; if(eye) eye.textContent=e;
-        });
-      });
-
-      const sec=document.getElementById('featured');
-      sec.style.opacity=0; sec.style.transform='translateY(16px)';
-      const io=new IntersectionObserver(es=>{
-        es.forEach(e=>{ if(e.isIntersecting){ sec.style.transition='opacity .5s ease, transform .5s ease'; sec.style.opacity=1; sec.style.transform='none'; io.disconnect(); } })
-      },{threshold:.15});
-      io.observe(sec);
-    })();
-
-    // ===== Product Index active state =====
-    (function(){
-      const list=document.getElementById('piList');
-      list.addEventListener('click', e=>{
-        const a=e.target.closest('a'); if(!a) return;
-        list.querySelectorAll('li').forEach(li=>li.classList.remove('active'));
-        a.parentElement.classList.add('active');
-      });
-    })();
-  </script>
+  <!-- JS -->
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,3 +1,0 @@
-.hero-slider{ user-select:none; }
-.hero-slider .slider-track{ cursor: grab; }
-.hero-slider.dragging .slider-track{ cursor: grabbing; }
