@@ -11,31 +11,37 @@
 
 <body>
   <!-- Navbar -->
-  <header>
-    <div class="navbar">
-      <div class="logo"><img src="img/N.PRO AUDIO 2010.png" alt="Logo" /></div>
-      <ul class="nav-links">
-        <li><a href="#">COMPANY ▾</a>
-          <div class="dropdown"><a href="#">About</a><a href="#">Careers</a><a href="#">Contact</a></div>
-        </li>
-        <li><a href="#">PRODUCT ▾</a>
-          <div class="dropdown"><a href="#">I/O Distribution</a><a href="#">Software</a></div>
-        </li>
-        <li><a href="#">NEWS ▾</a>
-          <div class="dropdown"><a href="#">Press</a><a href="#">Events</a></div>
-        </li>
-        <li><a href="#">SUPPORT ▾</a>
-          <div class="dropdown"><a href="#">Downloads</a><a href="#">Docs</a></div>
-        </li>
-        <li><a href="#">EDUCATION ▾</a>
-          <div class="dropdown"><a href="#">Training</a><a href="#">Webinars</a></div>
-        </li>
-      </ul>
-        </div>
+<header>
+  <div class="navbar">
+    <div class="logo">
+      <img src="img/N.PRO AUDIO 2010.png" alt="Logo" />
     </div>
-  </footer>
-    </div>
-  </header>
+
+    <!-- ⬇️ ปุ่มเมนูสำหรับมือถือ -->
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+      ☰
+    </button>
+
+    <ul class="nav-links">
+      <li><a href="#">COMPANY ▾</a>
+        <div class="dropdown"><a href="#">About</a><a href="#">Careers</a><a href="#">Contact</a></div>
+      </li>
+      <li><a href="#">PRODUCT ▾</a>
+        <div class="dropdown"><a href="#">I/O Distribution</a><a href="#">Software</a></div>
+      </li>
+      <li><a href="#">NEWS ▾</a>
+        <div class="dropdown"><a href="#">Press</a><a href="#">Events</a></div>
+      </li>
+      <li><a href="#">SUPPORT ▾</a>
+        <div class="dropdown"><a href="#">Downloads</a><a href="#">Docs</a></div>
+      </li>
+      <li><a href="products.html">EDUCATION ▾</a>
+        <div class="dropdown"><a href="products.html">Training</a><a href="products.html">Webinars</a></div>
+      </li>
+    </ul>
+  </div>
+</header>
+
 
   <!-- Hero Slider -->
   <section class="hero-slider" id="hero">
@@ -86,72 +92,75 @@
     <div class="dots" aria-label="pagination"></div>
   </section>
 
-  <!-- News + Education -->
-  <section class="home-sections">
-    <div class="container">
-      <div class="hs-grid">
-        
-        <!-- News -->
-        <div class="hs-card">
-          <div class="hs-eyebrow"><a href="/news">IN THE NEWS</a></div>
-
-          <article class="news-item">
-            <a class="news-link" href="/news/werchter-2025">
-              <div class="news-content">
-                <div class="news-text">
-                  <h4>Adamson Rocks Werchter 2025 – Over 600 Loudspeakers Deployed</h4>
-                  <div class="meta">Adamson · News · 09 Jul 2025</div>
-                  <p>Recognized as one of Europe's largest and most prestigious multi-genre festivals, Rock Werchter 2025...</p>
-                  <span class="link">READ MORE →</span>
-                </div>
-                <div class="news-thumb">
-                  <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?w=400" alt="thumbnail">
-                </div>
-              </div>
-            </a>
-          </article>
-
-          <article class="news-item">
-            <a class="news-link" href="/news/lithuania-launch">
-              <div class="news-content">
-                <div class="news-text">
-                  <h4>It’s official – Quality, power, and impact have landed in Lithuania</h4>
-                  <div class="meta">Adamson · News · 04 Jul 2025</div>
-                  <p>Adamson is now officially represented by key partner Kiela...</p>
-                  <span class="link">READ MORE →</span>
-                </div>
-                <div class="news-thumb">
-                  <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400" alt="thumbnail">
-                </div>
-              </div>
-            </a>
-          </article>
-
-        </div>
-
-        <!-- Education -->
-        <div class="hs-card">
-          <div class="hs-eyebrow"><a href="products.html">EDUCATION AND EVENTS</a></div>
-          <article class="news-item">
-            <a class="news-link" href="/education/milan-avb-workshop">
-              <div class="news-content">
-                <div class="news-text">
-                  <h4>System Engineering Workshop – Milan-AVB Deep Dive</h4>
-                  <div class="meta">Training · 22 Aug 2025</div>
-                  <p>Hands-on training for networked audio design, redundancy, and measurement.</p>
-                  <span class="link">VIEW DETAILS →</span>
-                </div>
-                <div class="news-thumb">
-                  <img src="https://images.unsplash.com/photo-1522199710521-72d69614c702?w=400" alt="thumbnail">
-                </div>
-              </div>
-            </a>
-          </article>
-        </div>
-
+<!-- News -->
+<section class="home-sections">
+  <div class="container">
+    <div class="hs-grid">
+      
+      <!-- คอลัมน์ 1: News -->
+      <div class="hs-card">
+  <div class="hs-eyebrow"><span>IN THE NEWS</span></div>
+  
+  <article class="news-item">
+    <div class="news-content">
+      <div class="news-text">
+        <h4>Npro Audio new</h4>
+        <div class="meta">Npro · News · 09 Jul 2025</div>
+        <p>Recognized as one of Europe's largest and most prestigious multi-genre festivals, Rock Werchter 2025...</p>
+        <span class="link">READ MORE →</span>
+      </div>
+      <div class="news-thumb">
+        <img src="img/IMG_E1111.JPG" alt="thumbnail">
       </div>
     </div>
-  </section>
+  </article>
+</div>
+
+      <!-- คอลัมน์ 2: Events -->
+      <div class="hs-card">
+
+        <article class="news-item">
+          <a class="news-link" href="#">
+            <div class="news-content">
+              <div class="news-text">
+                <h4>Workshop: Npro Audio Networking</h4>
+                <div class="meta">Events · 15 Aug 2025</div>
+                <p>Join our technical team for an in-depth training on networked audio systems.</p>
+                <span class="link">DETAILS →</span>
+              </div>
+              <div class="news-thumb">
+                <img src="img/IMG_8288.JPG" alt="thumbnail">
+              </div>
+            </div>
+          </a>
+        </article>
+      </div>
+
+      <!-- คอลัมน์ 3: Highlights -->
+      <div class="hs-card">
+
+        <article class="news-item">
+          <a class="news-link" href="#">
+            <div class="news-content">
+              <div class="news-text">
+                <h4>New Product Launch – CS Series</h4>
+                <div class="meta">Product · 01 Sep 2025</div>
+                <p>Introducing the new CS Series with enhanced DSP and Dante support.</p>
+                <span class="link">VIEW MORE →</span>
+              </div>
+              <div class="news-thumb">
+                <img src="img/IMG_9949.JPG" alt="thumbnail">
+              </div>
+            </div>
+          </a>
+        </article>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 
   <!-- Product Index -->
 <section class="product-index">

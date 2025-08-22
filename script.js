@@ -229,3 +229,25 @@
   const first = list.querySelector('a[data-key].active') || list.querySelector('a[data-key]');
   setDetail((first && first.dataset.key) || 'sSeries');
 })();
+
+// ===== Mobile menu toggle =====
+(function(){
+  const btn  = document.querySelector('.menu-toggle');
+  const list = document.querySelector('.nav-links');
+  if(!btn || !list) return;
+
+  btn.addEventListener('click', ()=>{
+    const isOpen = list.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    document.body.classList.toggle('no-scroll', isOpen);
+  });
+
+  // ปิดเมนูเมื่อแตะลิงก์
+  list.addEventListener('click', (e)=>{
+    if(e.target.tagName === 'A'){
+      list.classList.remove('open');
+      document.body.classList.remove('no-scroll');
+      document.querySelector('.menu-toggle')?.setAttribute('aria-expanded','false');
+    }
+  });
+})();
