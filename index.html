@@ -4,86 +4,116 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NPRO</title>
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <!-- Navbar -->
-<header>
-  <div class="navbar">
-    <div class="logo">
-      <img src="img/N.PRO AUDIO 2010.png" alt="Logo" />
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <a href="index.html"><img src="img/N.PRO AUDIO 2010.png" alt="NPRO Logo" /></a>
+      </div>
+
+      <!-- ปุ่มเมนูมือถือ -->
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+
+      <ul class="nav-links">
+        <!-- COMPANY -->
+        <li>
+          <a href="about.html">COMPANY ▾</a>
+          <div class="dropdown">
+            <a href="about.html">About</a>
+            <a href="careers.html">Careers</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </li>
+
+        <!-- PRODUCT -->
+        <li>
+          <a href="products.html">PRODUCT ▾</a>
+          <div class="dropdown">
+            <!-- ถ้าทำแองเคอร์ใน products.html ไว้แล้ว ใช้ # ให้ตรง id ได้เลย -->
+            <a href="products.html#io">I/O Distribution</a>
+            <a href="products.html#software">Software</a>
+          </div>
+        </li>
+
+        <!-- NEWS -->
+        <li>
+          <a href="press.html">NEWS ▾</a>
+          <div class="dropdown">
+            <a href="press.html">Press</a>
+            <a href="events.html">Events</a>
+          </div>
+        </li>
+
+        <!-- SUPPORT -->
+        <li>
+          <a href="downloads.html">SUPPORT ▾</a>
+          <div class="dropdown">
+            <a href="downloads.html">Downloads</a>
+            <a href="docs.html">Docs</a>
+          </div>
+        </li>
+
+        <!-- EDUCATION -->
+        <li>
+          <a href="products.html#training">EDUCATION ▾</a>
+          <div class="dropdown">
+            <a href="products.html#training">Training</a>
+            <a href="products.html#webinars">Webinars</a>
+          </div>
+        </li>
+      </ul>
     </div>
-
-    <!-- ⬇️ ปุ่มเมนูสำหรับมือถือ -->
-    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
-      ☰
-    </button>
-
-    <ul class="nav-links">
-      <li><a href="#">COMPANY ▾</a>
-        <div class="dropdown"><a href="#">About</a><a href="#">Careers</a><a href="#">Contact</a></div>
-      </li>
-      <li><a href="#">PRODUCT ▾</a>
-        <div class="dropdown"><a href="#">I/O Distribution</a><a href="#">Software</a></div>
-      </li>
-      <li><a href="#">NEWS ▾</a>
-        <div class="dropdown"><a href="#">Press</a><a href="#">Events</a></div>
-      </li>
-      <li><a href="#">SUPPORT ▾</a>
-        <div class="dropdown"><a href="#">Downloads</a><a href="#">Docs</a></div>
-      </li>
-      <li><a href="products.html">EDUCATION ▾</a>
-        <div class="dropdown"><a href="products.html">Training</a><a href="products.html">Webinars</a></div>
-      </li>
-    </ul>
-  </div>
-</header>
-
+  </header>
 
   <!-- Hero Slider -->
   <section class="hero-slider" id="hero">
     <div class="slider-track">
       <article class="slide">
-        <img class="bg" src="img/IMG_9951.JPG" alt="">
+        <img class="bg" src="img/IMG_9951.JPG" alt="40th Anniversary">
         <div class="overlay">
-          <h2>40th Anniversary</h2>
-          <p>Driven by innovation in sound reinforcement with power and clarity.</p>
-          <a href="#" class="cta">EXPLORE MORE</a>
+          <h2>Npro audio design</h2>
+          <p>is coming soon.</p>
+          <a href="about.html" class="cta">EXPLORE MORE</a>
         </div>
       </article>
+
       <article class="slide">
-        <img class="bg" src="img/IMG_8079.JPG" alt="">
+        <img class="bg" src="img/IMG_8079.JPG" alt="Next-Gen Network I/O">
         <div class="overlay">
-          <h2>Next-Gen Network I/O</h2>
-          <p>Milan-AVB, dual LAN, and flexible patching for modern systems.</p>
-          <a href="#" class="cta">SEE PRODUCTS</a>
+          <h2>Npro audio design</h2>
+          <p>is coming soon.</p>
+          <a href="products.html#io" class="cta">SEE PRODUCTS</a>
         </div>
       </article>
+
       <article class="slide">
-        <img class="bg" src="img/IMG_4769.JPG" alt="">
+        <img class="bg" src="img/IMG_4769.JPG" alt="Engineered for Touring">
         <div class="overlay">
-          <h2>Engineered for Touring</h2>
-          <p>Rugged design, fast setup, and reliable redundancy.</p>
-          <a href="#" class="cta">LEARN MORE</a>
+          <h2>Npro audio design</h2>
+          <p>is coming soon.</p>
+          <a href="products.html" class="cta">LEARN MORE</a>
         </div>
       </article>
+
       <article class="slide">
-        <img class="bg" src="img/IMG_4758.JPG" alt="">
+        <img class="bg" src="img/IMG_4758.JPG" alt="Power Distribution">
         <div class="overlay">
-          <h2>Power Distribution</h2>
-          <p>Safe and flexible power systems for any application.</p>
-          <a href="#" class="cta">DISCOVER</a>
+          <h2>Npro audio design</h2>
+          <p>is coming soon.</p>
+          <a href="products.html" class="cta">DISCOVER</a>
         </div>
       </article>
+
       <article class="slide">
-        <img class="bg" src="img/IMG_1103.JPG" alt="">
+        <img class="bg" src="img/IMG_1103.JPG" alt="Global Support">
         <div class="overlay">
-          <h2>Global Support</h2>
-          <p>24/7 support with worldwide partners.</p>
-          <a href="#" class="cta">CONTACT US</a>
+          <h2>Npro audio design</h2>
+          <p>is coming soon.</p>
+          <a href="contact.html" class="cta">CONTACT US</a>
         </div>
       </article>
     </div>
@@ -92,110 +122,104 @@
     <div class="dots" aria-label="pagination"></div>
   </section>
 
-<!-- News -->
-<section class="home-sections">
-  <div class="container">
-    <div class="hs-grid">
-      
-      <!-- คอลัมน์ 1: News -->
-      <div class="hs-card">
-  <div class="hs-eyebrow"><span>IN THE NEWS</span></div>
-  
-  <article class="news-item">
-    <div class="news-content">
-      <div class="news-text">
-        <h4>Npro Audio new</h4>
-        <div class="meta">Npro · News · 09 Jul 2025</div>
-        <p>Recognized as one of Europe's largest and most prestigious multi-genre festivals, Rock Werchter 2025...</p>
-        <span class="link">READ MORE →</span>
-      </div>
-      <div class="news-thumb">
-        <img src="img/IMG_E1111.JPG" alt="thumbnail">
-      </div>
-    </div>
-  </article>
-</div>
-
-      <!-- คอลัมน์ 2: Events -->
-      <div class="hs-card">
-
-        <article class="news-item">
-          <a class="news-link" href="#">
+  <!-- News -->
+  <section class="home-sections">
+    <div class="container">
+      <div class="hs-grid">
+        <!-- คอลัมน์ 1: News -->
+        <div class="hs-card">
+          <div class="hs-eyebrow"><span>IN THE NEWS</span></div>
+          <article class="news-item">
             <div class="news-content">
               <div class="news-text">
-                <h4>Workshop: Npro Audio Networking</h4>
-                <div class="meta">Events · 15 Aug 2025</div>
-                <p>Join our technical team for an in-depth training on networked audio systems.</p>
-                <span class="link">DETAILS →</span>
+                <h4><a class="news-link" href="press.html">Npro Audio new</a></h4>
+                <div class="meta">Npro · News · 09 Jul 2025</div>
+                <p>Recognized as one of Europe's largest and most prestigious multi-genre festivals, Rock Werchter 2025...</p>
+                <a class="link" href="press.html">READ MORE →</a>
               </div>
               <div class="news-thumb">
-                <img src="img/IMG_8288.JPG" alt="thumbnail">
+                <a href="press.html"><img src="img/IMG_E1111.JPG" alt="thumbnail"></a>
               </div>
             </div>
-          </a>
-        </article>
-      </div>
+          </article>
+        </div>
 
-      <!-- คอลัมน์ 3: Highlights -->
-      <div class="hs-card">
-
-        <article class="news-item">
-          <a class="news-link" href="#">
-            <div class="news-content">
-              <div class="news-text">
-                <h4>New Product Launch – CS Series</h4>
-                <div class="meta">Product · 01 Sep 2025</div>
-                <p>Introducing the new CS Series with enhanced DSP and Dante support.</p>
-                <span class="link">VIEW MORE →</span>
+        <!-- คอลัมน์ 2: Events -->
+        <div class="hs-card">
+          <article class="news-item">
+            <a class="news-link" href="events.html">
+              <div class="news-content">
+                <div class="news-text">
+                  <h4>Workshop: Npro Audio Networking</h4>
+                  <div class="meta">Events · 15 Aug 2025</div>
+                  <p>Join our technical team for an in-depth training on networked audio systems.</p>
+                  <span class="link">DETAILS →</span>
+                </div>
+                <div class="news-thumb">
+                  <img src="img/IMG_8288.JPG" alt="thumbnail">
+                </div>
               </div>
-              <div class="news-thumb">
-                <img src="img/IMG_9949.JPG" alt="thumbnail">
-              </div>
-            </div>
-          </a>
-        </article>
-      </div>
+            </a>
+          </article>
+        </div>
 
+        <!-- คอลัมน์ 3: Highlights -->
+        <div class="hs-card">
+          <article class="news-item">
+            <a class="news-link" href="products.html#cs-series">
+              <div class="news-content">
+                <div class="news-text">
+                  <h4>New Product Launch – CS Series</h4>
+                  <div class="meta">Product · 01 Sep 2025</div>
+                  <p>Introducing the new CS Series with enhanced DSP and Dante support.</p>
+                  <span class="link">VIEW MORE →</span>
+                </div>
+                <div class="news-thumb">
+                  <img src="img/IMG_9949.JPG" alt="thumbnail">
+                </div>
+              </div>
+            </a>
+          </article>
+        </div>
+
+      </div>
     </div>
-  </div>
-</section>
-
-
+  </section>
 
   <!-- Product Index -->
-<section class="product-index">
-  <div class="pi-wrap">
-    <h2 class="pi-title">PRODUCT</h2>
+  <section class="product-index">
+    <div class="pi-wrap">
+      <h2 class="pi-title">PRODUCT</h2>
 
-    <div class="pi-layout">
-      <!-- ซ้าย: รายการหมวด/รุ่น -->
-      <ul class="pi-list" id="piList">
-        <li class="active"><a href="#blueprint" data-key="blueprint">BLUEPRINT AV™</a></li>
-        <li><a href="#e-series" data-key="eSeries">E-SERIES</a></li>
-        <li><a href="#cs-series" data-key="csSeries">CS-SERIES</a></li>
-        <li><a href="#s-series" data-key="sSeries">S-SERIES</a></li>
-        <li><a href="#is-series" data-key="isSeries">IS-SERIES</a></li>
-        <li><a href="#point-series" data-key="pointSeries">POINT SERIES</a></li>
-        <li><a href="#m-series" data-key="mSeries">M-SERIES</a></li>
-      </ul>
+      <div class="pi-layout">
+        <!-- ซ้าย: รายการหมวด/รุ่น -->
+        <ul class="pi-list" id="piList">
+          <li class="active"><a href="#blueprint" data-key="blueprint">BLUEPRINT AV™</a></li>
+          <li><a href="#e-series" data-key="eSeries">E-SERIES</a></li>
+          <li><a href="#cs-series" data-key="csSeries">CS-SERIES</a></li>
+          <li><a href="#s-series" data-key="sSeries">S-SERIES</a></li>
+          <li><a href="#is-series" data-key="isSeries">IS-SERIES</a></li>
+          <li><a href="#point-series" data-key="pointSeries">POINT SERIES</a></li>
+          <li><a href="#m-series" data-key="mSeries">M-SERIES</a></li>
+        </ul>
 
-      <!-- ขวา: พื้นที่รายละเอียดที่เปลี่ยนตามรายการ -->
-      <aside class="pi-detail" id="piDetail">
-        <div class="pi-img-wrap">
-          <img id="piImage" src="img/IMG_1103.JPG" alt="Product image">
-        </div>
-        <div class="pi-copy">
-          <h3 id="piName">Class leading SPL in a compact design</h3>
-          <p id="piDesc">
-            The S-Series solves the challenge of consistent coverage and excellent power
-            from a sub-compact system. Designed for touring, installation, and rental.
-          </p>
-          <a id="piCta" class="pi-btn" href="#">VIEW MORE</a>
-        </div>
-      </aside>
+        <!-- ขวา: พื้นที่รายละเอียดที่เปลี่ยนตามรายการ -->
+        <aside class="pi-detail" id="piDetail">
+          <div class="pi-img-wrap">
+            <img id="piImage" src="img/IMG_1103.JPG" alt="Product image">
+          </div>
+          <div class="pi-copy">
+            <h3 id="piName">Class leading SPL in a compact design</h3>
+            <p id="piDesc">
+              The S-Series solves the challenge of consistent coverage and excellent power
+              from a sub-compact system. Designed for touring, installation, and rental.
+            </p>
+            <a id="piCta" class="pi-btn" href="products.html">VIEW MORE</a>
+          </div>
+        </aside>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -205,8 +229,8 @@
         <div class="footer-col">
           <h4 class="footer-title">BLUEPRINT AV™</h4>
           <ul class="footer-links">
-            <li><a href="#">Download</a></li>
-            <li><a href="#">Tutorial Series</a></li>
+            <li><a href="downloads.html">Download</a></li>
+            <li><a href="products.html#tutorials">Tutorial Series</a></li>
           </ul>
         </div>
 
@@ -214,11 +238,11 @@
         <div class="footer-col">
           <h4 class="footer-title">COMPANY</h4>
           <ul class="footer-links">
-            <li><a href="#">Company</a></li>
-            <li><a href="#">Product</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Support</a></li>
-            <li><a href="#">Education</a></li>
+            <li><a href="about.html">Company</a></li>
+            <li><a href="products.html">Product</a></li>
+            <li><a href="press.html">News</a></li>
+            <li><a href="downloads.html">Support</a></li>
+            <li><a href="products.html#training">Education</a></li>
           </ul>
         </div>
 

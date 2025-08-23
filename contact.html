@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact – NPRO</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="navbar">
+      <div class="logo"><a href="index.html"><img src="img/N.PRO AUDIO 2010.png" alt="Logo" /></a></div>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      <ul class="nav-links">
+        <li><a href="#">COMPANY ▾</a>
+          <div class="dropdown">
+            <a href="about.html">About</a>
+            <a href="careers.html">Careers</a>
+            <a href="contact.html" class="active">Contact</a>
+          </div>
+        </li>
+        <li><a href="products.html">PRODUCT ▾</a><div class="dropdown"><a href="products.html">I/O Distribution</a><a href="products.html">Software</a></div></li>
+        <li><a href="#">NEWS ▾</a><div class="dropdown"><a href="#">Press</a><a href="#">Events</a></div></li>
+        <li><a href="#">SUPPORT ▾</a><div class="dropdown"><a href="#">Downloads</a><a href="#">Docs</a></div></li>
+        <li><a href="products.html">EDUCATION ▾</a><div class="dropdown"><a href="products.html">Training</a><a href="products.html">Webinars</a></div></li>
+      </ul>
+      <div class="search">🔍</div>
+    </div>
+  </header>
+
+  <section class="page-hero" style="background-image:url('img/IMG_4769.JPG')">
+    <div class="container"><h1>Contact Us</h1><p>เรายินดีช่วยเหลือคุณเสมอ</p></div>
+  </section>
+
+  <section class="page-section" id="apply">
+    <div class="container contact-grid">
+      <div>
+        <h2>Send us a message</h2>
+        <form class="contact-form" action="mailto:info@nproaudiodesign.com" method="post" enctype="text/plain">
+          <label>ชื่อ/Name<input type="text" name="name" required></label>
+          <label>อีเมล/Email<input type="email" name="email" required></label>
+          <label>เรื่อง/Subject<input type="text" name="subject"></label>
+          <label>ข้อความ/Message<textarea name="message" rows="6" required></textarea></label>
+          <button type="submit" class="pi-btn">Send</button>
+        </form>
+        <p class="note">หรือส่งอีเมลมาที่ <a href="mailto:info@nproaudiodesign.com">info@nproaudiodesign.com</a></p>
+      </div>
+      <div>
+        <h2>Office</h2>
+        <p>NPRO Audio Design<br>Bangkok, Thailand</p>
+        <p><strong>Phone:</strong> +66-xxx-xxx-xxx<br><strong>Email:</strong> info@nproaudiodesign.com</p>
+        <!-- ใส่ Google Map ได้ถ้าต้องการ -->
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">…</footer>
+  <script src="script.js"></script>
+</body>
+</html>
