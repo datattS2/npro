@@ -298,3 +298,15 @@ body{ padding-top: var(--header-h); }
 }
 .contact-form button{ margin-top:6px; }
 .note{ color:#666; margin-top:10px; }
+
+/* มือถือ: ให้หัวข้อหลักแตะแล้วแค่เปิดเมนูย่อย ไม่ต้องนำทาง */
+@media (max-width:900px){
+  /* ซ่อนเมนูย่อยเป็นค่าเริ่มต้น */
+  .nav-links li .dropdown{ display:none; }
+
+  /* เปิดเฉพาะรายการที่มีคลาส sub-open */
+  .nav-links li.sub-open > .dropdown{ display:block; }
+
+  /* ให้หัวข้อหลักคลิกได้ (เพื่อให้ JS รับ event) */
+  .nav-links > li > a.nolink{ pointer-events:auto; cursor:default; }
+}

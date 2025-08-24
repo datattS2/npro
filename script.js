@@ -251,3 +251,29 @@
     }
   });
 })();
+
+// กันเด้ง '#' และทำให้แตะหัวข้อหลักแล้วเปิด/ปิดเมนูย่อย
+document.querySelectorAll('.nav-links > li > a.nolink').forEach(a => {
+  a.addEventListener('click', (e) => {
+    e.preventDefault(); // กันเด้งขึ้นบนสุด
+    const li = a.parentElement;
+    const nav = a.closest('.nav-links');
+
+    // ปิดรายการอื่นก่อน (เพื่อไม่ให้เปิดหลายอันพร้อมกัน)
+    nav.querySelectorAll('li.sub-open').forEach(x => {
+      if (x !== li) x.classList.remove('sub-open');
+    });
+
+    // สลับเปิด/ปิดเมนูย่อยของรายการนี้
+    li.classList.toggle('sub-open');
+  });
+});
+
+// ตัวเลือก: เมื่อคลิกลิงก์ย่อยแล้วให้ปิดเมนูมือถือ
+const navLinks = document.querySelector('.nav-links');
+document.querySelectorAll('.nav-links .dropdown a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    document.body.classList.remove('no-scroll');
+  });
+});
